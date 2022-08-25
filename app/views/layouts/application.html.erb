@@ -16,6 +16,7 @@
           <% if admin_signed_in? %>
             <%= current_admin.email %>
             <%= link_to 'Sair', destroy_admin_session_path, method: 'delete'%>
+            <%= link_to 'Gerador de cartão', new_card_path %>
           <% else %>
             <%= link_to 'Entrar', new_admin_session_path, class:'text-green-600 hover:text-green-700' %>
           <% end %>
