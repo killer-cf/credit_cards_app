@@ -1,5 +1,10 @@
 class Card < ApplicationRecord
   validates :name, :cpf, :number, :code, :valid_date, :password, presence: true
+  validates :number, uniqueness: true
+  validates :number, length: { is: 16 }
+  validates :cpf, length: { is: 11 }
+  validates :password, length: { is: 4 }
+  validates :code, length: { is: 3 }
 
   before_validation :generate_password, :generate_number, :generate_code, :generate_valid_date, on: :create
 
