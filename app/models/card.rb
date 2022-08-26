@@ -6,7 +6,8 @@ class Card < ApplicationRecord
   validates :password, length: { is: 4 }
   validates :code, length: { is: 3 }
 
-  before_validation :generate_password, :generate_number, :generate_code, :generate_valid_date, on: :create
+  before_validation :generate_password, :generate_number, :generate_code, :generate_valid_date,
+                    :set_available_limit, on: :create
 
   private
 
@@ -24,5 +25,9 @@ class Card < ApplicationRecord
 
   def generate_valid_date
     self.valid_date = 5.years.from_now.to_date
+  end
+
+  def set_available_limit
+    self.available_limit = total_limit
   end
 end

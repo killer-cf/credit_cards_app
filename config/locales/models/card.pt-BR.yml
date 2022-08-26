@@ -10,3 +10,5 @@ pt-BR:
         code: Código
         password: Senha
         valid_date: Data de validade
+        total_limit: Limite
+        available_limit: Limite disponivel

@@ -8,7 +8,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    card_params = params.require(:card).permit(:name, :cpf)
+    card_params = params.require(:card).permit(:name, :cpf, :total_limit)
     @card = Card.new(card_params)
     if @card.save
       redirect_to root_path, notice: 'Cartão gerado com sucesso'
