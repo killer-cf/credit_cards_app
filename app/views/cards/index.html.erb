@@ -1,0 +1,10 @@
+<div>
+  <% @cards.each do |card| %>
+    <p>Nome: <%= card.name %></p>
+    <p>CPF: <%= card.cpf %></p>
+    <p>Numero: <%= card.number %></p>
+    <p>Cod: <%= card.code %></p>
+    <p>Validade: <%=l card.valid_date %></p>
+    <p>Senha: <%= card.password %></p>
+  <% end %>
+</div>
