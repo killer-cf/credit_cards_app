@@ -1,9 +1,10 @@
+require 'faker'
+
 FactoryBot.define do
   factory :card do
-    name { "MyString" }
-    cpf { "MyString" }
-    number { "MyString" }
-    code { 1 }
-    valid { "2022-08-24" }
+    name { Faker::Name.name }
+    cpf { Faker::Number.unique.number(digits: 11) }
+    total_limit { 10_000 }
+    available_limit { 10_000 }
   end
 end

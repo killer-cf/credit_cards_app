@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_26_205454) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_195420) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -34,6 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_26_205454) do
     t.datetime "updated_at", null: false
     t.decimal "total_limit"
     t.decimal "available_limit"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.decimal "value"
+    t.string "order"
+    t.string "cpf"
+    t.string "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
