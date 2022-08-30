@@ -1,7 +1,6 @@
 class Api::V1::TransactionsController < Api::V1::ApiController
   def create
-    card = Card.find_by(card_params)
-    raise ActiveRecord::RecordNotFound if card.nil?
+    return render status: 404, json: { errors: 'Cartão invalido, revise os dados' } unless Card.find_by(card_params)
 
     transaction = Transaction.new(transaction_params)
     if transaction.save
