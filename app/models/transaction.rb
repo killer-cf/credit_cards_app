@@ -1,6 +1,10 @@
 class Transaction < ApplicationRecord
   enum status: { accepted: 0, rejected: 5, pending: 9 }
 
+  validates :status, :value, :order, :cpf, :number, presence: true
+  validates :value, numericality: { greater_than: 0 }
+  validates :order, uniqueness: true
+
   after_create :checks_and_update_limit
 
   private
